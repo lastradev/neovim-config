@@ -103,7 +103,7 @@ map('n', '<leader>xd', '<cmd>TroubleToggle lsp_document_diagnostics<CR>')
 map('n', '<leader>xq', '<cmd>TroubleToggle quickfix<CR>')
 map('n', '<leader>xl', '<cmd>TroubleToggle loclist<CR>')
 map('n', '<leader>xl', '<cmd>TroubleToggle loclist<CR>')
-map('n', '<leader>gR', '<cmd>TroubleToggle lsp_references<CR>')
+map('n', 'gr', '<cmd>TroubleToggle lsp_references<CR>')
 
 -- Breakpoints for undo
 map('i', ',', ',<c-g>u')

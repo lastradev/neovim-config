@@ -7,7 +7,7 @@ return function()
 
   indent_blankline.setup {
     char = "▏",
-    filetype_exclude = {"help", "terminal", "dashboard", "startify"},
+    filetype_exclude = {"help", "terminal", "dashboard", "startify", "NvimTree"},
     buftype_exclude = {"terminal"},
     show_trailing_blankline_indent = 0,
     show_first_indent_level = 0

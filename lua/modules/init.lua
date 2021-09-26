@@ -120,8 +120,8 @@ return require('packer').startup(function(use)
   -- File tree
   use {
     'kyazdani42/nvim-tree.lua',
-    config = require 'modules.config.nvim-tree',
-    requires = 'kyazdani42/nvim-web-devicons'
+    requires = 'kyazdani42/nvim-web-devicons',
+    config = require 'modules.config.nvim-tree'
   }
 
   -- Debugging
