@@ -7,24 +7,58 @@ return function()
 
     -- get my theme in galaxyline repo
     -- local colors = require('galaxyline.theme').default
+    --
+        local onedark = {
+            black = '#0c0e15',
+              bg0 = '#1a212e',
+              bg1 = '#21283b',
+              bg2 = '#283347',
+              bg3 = '#2a324a',
+             bg_d = '#141b24',
+          bg_blue = '#54b0fd',
+        bg_yellow = '#f2cc81',
+               fg = '#93a4c3',
+           purple = '#c75ae8',
+            green = '#8bcd5b',
+           orange = '#dd9046',
+             blue = '#41a7fc',
+           yellow = '#efbd5d',
+             cyan = '#34bfd0',
+              red = '#f65866',
+             grey = '#455574',
+        dark_cyan = '#1b6a73',
+         dark_red = '#992525',
+      dark_yellow = '#8f610d',
+      dark_purple = '#862aa1',
+        diff_add  = '#27341c',
+      diff_delete = '#331c1e',
+      diff_change = '#102b40',
+        diff_text = '#1c4a6e'
+    }
+
     local colors = {
-        bg = '#23252F',
-        yellow = '#f1fa8c',
-        dark_yellow = '#D5DB89',
-        cyan = '#8be9fd',
-        green = '#50fa7b',
-        light_green = '#50FA7B',
-        string_orange = '#ffb86c',
-        orange = '#ffb86c',
-        purple = '#bd93f9',
-        magenta = '#ff79c6',
-        grey = '#44475a',
-        blue = '#8be9fd',
-        vivid_blue = '#8be9fd',
-        light_blue = '#8be9fd',
-        red = '#ff5555',
-        error_red = '#ff5555',
-        info_yellow = '#f1fa8c'
+      bg = "#282a36",
+      bg_inactive = "#282a36",
+      fg = onedark.fg,
+      fg_focus = '#f8f8f2',
+      section_bg = onedark.bg0,
+      yellow = onedark.bg_yellow,
+      dark_yellow = onedark.bg_yellow,
+      info_yellow = onedark.yellow,
+      cyan = onedark.cyan,
+      green = onedark.green,
+      light_green = onedark.green,
+      string_orange = onedark.orange,
+      orange = onedark.orange,
+      magenta = onedark.purple,
+      purple = onedark.purple,
+      blue = onedark.blue,
+      vivid_blue = onedark.blue,
+      light_blue = onedark.blue,
+      red = onedark.red,
+      error_red = onedark.red,
+      black = onedark.black,
+      grey = onedark.grey
     }
 
     local gls = gl.section

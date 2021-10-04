@@ -3,7 +3,19 @@ return function()
     require'lspinstall'.setup()
     local servers = require'lspinstall'.installed_servers()
     for _, server in pairs(servers) do
-      require'lspconfig'[server].setup{}
+      if server == "lua" then
+        require'lspconfig'.lua.setup {
+          settings = {
+              Lua = {
+                  diagnostics = {
+                      globals = { 'vim' }
+                  }
+              }
+          }
+        }
+      else
+        require'lspconfig'[server].setup{}
+      end
     end
   end
 

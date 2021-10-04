@@ -44,14 +44,6 @@ o.shortmess = o.shortmess + {
   c = true
 }
 
--- Fzf settings
--- vim.g.fzf_action = {
-    -- \ 'ctrl-t': 'tab split',
-    -- \ 'ctrl-s': 'split',
-    -- \ 'ctrl-v': 'vsplit'
--- \}
-
-
 -- Testing
 vim.g['test#strategy'] = 'neovim'
 vim.g['test#neovim#term_position'] = 'below 13'

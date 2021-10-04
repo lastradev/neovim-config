@@ -76,7 +76,8 @@ return require('packer').startup(function(use)
   }
 
   use {
-    'glepnir/lspsaga.nvim',
+    --'glepnir/lspsaga.nvim',
+    'tami5/lspsaga.nvim',
     config = require 'modules.config.lspDiagnosticsSigns'
   }
 
@@ -99,7 +100,11 @@ return require('packer').startup(function(use)
   -- Whichkey
   use {
     "folke/which-key.nvim",
-    config = require("which-key").setup{}
+    config = require("which-key").setup{
+      icons = {
+        separator = "->"
+      }
+    }
   }
 
   -- Cursor highlight
@@ -203,7 +208,12 @@ return require('packer').startup(function(use)
   }
 
   -- Colorscheme
-  use {'dracula/vim', as = 'dracula'}
+  --use {'dracula/vim', as = 'dracula'}
+  --use {'pacokwon/onedarkhc.vim'}
+  use {
+      'navarasu/onedark.nvim',
+      config = require('onedark').setup()
+  }
 
   -- Personal snippets
   --use {

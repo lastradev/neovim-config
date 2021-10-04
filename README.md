@@ -1,6 +1,6 @@
 # Neovim Config 🖌️
 
-![neovim dashboard](https://i.ibb.co/cJtWwQS/2021-09-18-16-01.png)
+![neovim dashboard](https://i.imgur.com/rD2KOB1.png)
 
 
 ## Description
@@ -52,5 +52,5 @@ In neovim issue the command :PackerSync to install all plugins
 
 ## Screenshots
 
-![neovim diagnostics](https://i.ibb.co/kqDZN6x/2021-09-18-16-52.png)
-![neovim outline](https://i.ibb.co/Vx95gcr/2021-09-18-16-57.png)
+![neovim outline](https://i.imgur.com/HQpm4x2.png)
+![neovim lspsaga](https://i.imgur.com/PWyYOqv.png)
