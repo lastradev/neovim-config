@@ -5,7 +5,17 @@ return require('packer').startup(function(use)
   -- Common dependencies
   use {'nvim-lua/plenary.nvim'}
 
-  -- Post-install/update hook with neovim command
+  -- Web-devicons
+  use {
+    'kyazdani42/nvim-web-devicons',
+    config = function()
+      require'nvim-web-devicons'.setup{
+        default = true;
+      }
+    end
+  }
+
+  -- Treesitter
   use {
     'nvim-treesitter/nvim-treesitter',
     config = require 'modules.config.treesitter',
@@ -56,7 +66,9 @@ return require('packer').startup(function(use)
   -- HEX Colors
   use {
     'norcalli/nvim-colorizer.lua',
-    config = require('colorizer').setup()
+    config = function()
+      require('colorizer').setup()
+    end
   }
 
   -- Surround parenthesis and other symbols
@@ -78,6 +90,7 @@ return require('packer').startup(function(use)
   use {
     --'glepnir/lspsaga.nvim',
     'tami5/lspsaga.nvim',
+    commit = '373bc031b39730cbfe492533c3acfac36007899a',
     config = require 'modules.config.lspDiagnosticsSigns'
   }
 
@@ -88,7 +101,9 @@ return require('packer').startup(function(use)
   use {
     'folke/trouble.nvim',
     requires = {'kyazdani42/nvim-web-devicons'},
-    config = require("trouble").setup{}
+    config = function()
+      require("trouble").setup{}
+    end
   }
 
   -- Indentation lines
@@ -100,11 +115,13 @@ return require('packer').startup(function(use)
   -- Whichkey
   use {
     "folke/which-key.nvim",
-    config = require("which-key").setup{
-      icons = {
-        separator = "->"
+    config = function()
+      require("which-key").setup{
+        icons = {
+          separator = "->"
+        }
       }
-    }
+    end
   }
 
   -- Cursor highlight
@@ -136,14 +153,18 @@ return require('packer').startup(function(use)
   }
   use {
     'rcarriga/nvim-dap-ui',
-    config = require ("dapui").setup{},
+    config = function()
+      require ("dapui").setup{}
+    end,
     requires = 'mfussenegger/nvim-dap',
   }
 
   -- Terminal
   use {
     "akinsho/toggleterm.nvim",
-    config = require("toggleterm").setup{}
+    config = function()
+      require("toggleterm").setup{}
+    end
   }
 
   -- Python formater
@@ -209,10 +230,11 @@ return require('packer').startup(function(use)
 
   -- Colorscheme
   --use {'dracula/vim', as = 'dracula'}
-  --use {'pacokwon/onedarkhc.vim'}
   use {
       'navarasu/onedark.nvim',
-      config = require('onedark').setup()
+      config = function()
+        require('onedark').setup()
+      end
   }
 
   -- Personal snippets
