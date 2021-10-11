@@ -57,7 +57,10 @@ vim.api.nvim_command([[
 ]])
 
 -- Python venv
-vim.g.python3_host_prog = '~/.local/venv/nvim/bin/python'
+local python_path = '~/.local/venv/nvim'
+if vim.fn.empty(vim.fn.glob(python_path)) == 0 then
+    vim.g.python3_host_prog = python_path .. '/bin/python'
+end
 
 -- Disable bloated programs in nvim
 local disabled_built_ins = {
