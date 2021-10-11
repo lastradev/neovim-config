@@ -8,7 +8,7 @@ return function()
   g.nvim_tree_ignore = { '.git', 'node_modules', '.cache' } -- empty by default
   g.nvim_tree_quit_on_open = 1 -- 0 by default, closes the tree when you open a file
   g.nvim_tree_highlight_opened_files = 1 -- 0 by default, will enable folder and file icon highlight for opened files/directories.
-  g.nvim_tree_disable_window_picker = 1
+  -- g.nvim_tree_disable_window_picker = 1 buggy option
 
   nvim_tree.setup{
     -- open the tree when running this setup function
