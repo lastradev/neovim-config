@@ -37,8 +37,10 @@ Plugins courtesy of the community ❤️
 
 ## Installation
 
-- Make sure to have neovim >= 0.5
-- Install gcc for treesitter C compilation
+- Make sure to install neovim >= 0.5 (working fine on nvim stable)
+- Install [gcc](https://gcc.gnu.org/) for treesitter C compilation
+- Install pynvim with pip3 for snippets
+- Install [The Silver Searcher](https://github.com/ggreer/the_silver_searcher) for Ag command
 
 Clone repo to your config folder (usually located in ~/.config/nvim)
 
