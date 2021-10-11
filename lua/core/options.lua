@@ -16,7 +16,7 @@ o.backup = false
 o.swapfile = false
 
 -- Completion
-o.completeopt = 'menuone,noselect'
+o.completeopt = 'menu,menuone,noselect'
 o.pumheight = 8
 
 

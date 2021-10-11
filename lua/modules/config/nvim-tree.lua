@@ -8,6 +8,7 @@ return function()
   g.nvim_tree_ignore = { '.git', 'node_modules', '.cache' } -- empty by default
   g.nvim_tree_quit_on_open = 1 -- 0 by default, closes the tree when you open a file
   g.nvim_tree_highlight_opened_files = 1 -- 0 by default, will enable folder and file icon highlight for opened files/directories.
+  g.nvim_tree_disable_window_picker = 1
 
   nvim_tree.setup{
     -- open the tree when running this setup function
@@ -19,7 +20,15 @@ return function()
     -- updates the root directory of the tree on `DirChanged` (when your run `:cd` usually)
     update_cwd          = true,
     -- show lsp diagnostics in the signcolumn
-    lsp_diagnostics     = true,
+    diagnostics = {
+      enable = true,
+      icons = {
+        hint = "",
+        info = "",
+        warning = "",
+        error = "",
+      }
+    },
     -- update the focused file on `BufEnter`, un-collapses the folders recursively until it finds the file
     update_focused_file = {
       -- enables the feature

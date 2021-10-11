@@ -1,5 +1,12 @@
+-- Auto install packer
+local fn = vim.fn
+local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
+if fn.empty(fn.glob(install_path)) > 0 then
+  PACKER_BOOTSTRAP = fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
+end
+
 return require('packer').startup(function(use)
-  -- Packer
+  -- Packer can manage itself
   use 'wbthomason/packer.nvim'
 
   -- Common dependencies
@@ -88,9 +95,7 @@ return require('packer').startup(function(use)
   }
 
   use {
-    --'glepnir/lspsaga.nvim',
     'tami5/lspsaga.nvim',
-    commit = '373bc031b39730cbfe492533c3acfac36007899a',
     config = require 'modules.config.lspDiagnosticsSigns'
   }
 
@@ -192,7 +197,6 @@ return require('packer').startup(function(use)
   use {
     "hrsh7th/nvim-cmp",
     config = require 'modules.config.cmp',
-      --require 'modules.config.completionItemKinds'
     requires = {
       "hrsh7th/vim-vsnip",
       'hrsh7th/vim-vsnip-integ',
@@ -242,5 +246,11 @@ return require('packer').startup(function(use)
     --'~/.local/share/nvim/site/pack/packer/custom-snippets',
     --requires = {'hrsh7th/nvim-cmp'}
   --}
+
+  -- Automatically set up your configuration after cloning packer.nvim
+  -- Put this at the end after all plugins
+  if PACKER_BOOTSTRAP then
+    require('packer').sync()
+  end
 end)
 

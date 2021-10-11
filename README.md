@@ -38,16 +38,14 @@ Plugins courtesy of the community ❤️
 ## Installation
 
 - Make sure to have neovim >= 0.5
-- Install [packer](https://github.com/wbthomason/packer.nvim)
+- Install gcc for treesitter C compilation
 
 Clone repo to your config folder (usually located in ~/.config/nvim)
 
 ```
-cd ~/.config/nvim
-git clone https://github.com/lastra-dev/neovim-config.git
+cd ~/.config
+git clone https://github.com/lastra-dev/neovim-config.git nvim
 ```
-
-In neovim issue the command :PackerSync to install all plugins
 
 
 ## Screenshots
