@@ -56,8 +56,13 @@ map('v', '++', [[<cmd>lua vim.fn.feedkeys(string.format('%c%c%cNERDCommenterTogg
 map('n', '<leader>ps', '<cmd>Files<CR>')
 map('n', '<leader>fs', '<cmd>Ag<CR>')
 
--- Flutter emulator
+-- Flutter
 map('n', '<leader>fe', '<cmd>FlutterEmulators<CR>')
+map('n', '<leader>fe', '<cmd>!flutter emulators --launch Pixel_2_API_30<CR>')
+map('n', '<leader>fr', '<cmd>FlutterRun<CR>')
+map('n', '<leader>fh', '<cmd>FlutterRestart<CR>')
+map('n', '<leader>fq', '<cmd>FlutterQuit<CR>')
+map('n', '<leader>fc', '<cmd>below new __FLUTTER_DEV_LOG__<CR>')
 
 -- Format Files
 map('n', '<leader>fo', '<cmd>lua vim.lsp.buf.formatting()<CR>')
@@ -116,3 +121,11 @@ map('n', '<leader>b', "<cmd>lua require'dap'.toggle_breakpoint()<CR>")
 map('n', '<leader>dr', "<cmd>lua require'dap'.continue()<CR>")
 map('n', '<leader>do', "<cmd>lua require'dap'.step_over()<CR>")
 map('n', '<leader>di', "<cmd>lua require'dap'.step_into()<CR>")
+
+-- Alternate file
+map('n', '<BS>', '<C-^>')
+
+-- fix current
+-- thanks to mincrmatt12
+-- https://stackoverflow.com/questions/67988374/neovim-lsp-auto-fix-fix-current
+map('n', '<leader>qf', "<cmd>lua require('lsp_fixcurrent')()<CR>")

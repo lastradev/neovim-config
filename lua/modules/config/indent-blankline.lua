@@ -16,6 +16,7 @@ return function()
       "markdown",
       "text",
       "packer",
+      "lsp-installer",
       ""
     },
     buftype_exclude = {"terminal"},

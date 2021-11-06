@@ -89,13 +89,14 @@ return require('packer').startup(function(use)
 
   -- LSP
   use {
-    'neovim/nvim-lspconfig',
-    config = require 'modules.config.lspInstall',
-    requires = {'kabouzeid/nvim-lspinstall'}
+    'williamboman/nvim-lsp-installer',
+    config = require 'modules.config.nvim-lsp-installer',
+    requires = {'neovim/nvim-lspconfig'}
   }
 
   use {
     'tami5/lspsaga.nvim',
+    branch = 'nvim51',
     config = require 'modules.config.lspDiagnosticsSigns'
   }
 
@@ -233,9 +234,9 @@ return require('packer').startup(function(use)
   }
 
   -- Colorscheme
-  --use {'dracula/vim', as = 'dracula'}
   use {
       'navarasu/onedark.nvim',
+      branch = 'custom-colors',
       config = function()
         require('onedark').setup()
       end
