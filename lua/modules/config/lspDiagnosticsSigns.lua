@@ -1,18 +1,6 @@
 return function()
-    vim.fn.sign_define(
-        "LspDiagnosticsSignError",
-        {texthl = "LspDiagnosticsSignError", text = "", numhl = "LspDiagnosticsSignError"}
-    )
-    vim.fn.sign_define(
-        "LspDiagnosticsSignWarning",
-        {texthl = "LspDiagnosticsSignWarning", text = "", numhl = "LspDiagnosticsSignWarning"}
-    )
-    vim.fn.sign_define(
-        "LspDiagnosticsSignHint",
-        {texthl = "LspDiagnosticsSignHint", text = "", numhl = "LspDiagnosticsSignHint"}
-    )
-    vim.fn.sign_define(
-        "LspDiagnosticsSignInformation",
-        {texthl = "LspDiagnosticsSignInformation", text = "", numhl = "LspDiagnosticsSignInformation"}
-    )
+    vim.fn.sign_define("DiagnosticSignError", {text = "", texthl = "DiagnosticSignError", numhl = "DiagnosticSignError"})
+    vim.fn.sign_define("DiagnosticSignWarn", {text = "", texthl = "DiagnosticSignWarn", numhl = "DiagnosticSignWarn"})
+    vim.fn.sign_define("DiagnosticSignHint", {text = "", texthl = "DiagnosticSignHint", numhl = "DiagnosticSignHint"})
+    vim.fn.sign_define("DiagnosticSignInfo", {text = "", texthl = "DiagnosticSignInfo", numhl = "DiagnosticSignInfo"})
 end

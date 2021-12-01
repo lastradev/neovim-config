@@ -50,6 +50,17 @@ git clone https://github.com/lastra-dev/neovim-config.git nvim
 ```
 
 
+## Extra
+
+I'm currently using Luke Smith's [st terminal](https://github.com/LukeSmithxyz/st)
+with [JetBrainsMono Nerd Font](https://www.nerdfonts.com/font-downloads) and
+the [Dracula](https://draculatheme.com/xresources) color pallet configured with
+[Xresources](https://github.com/lastra-dev/dotfiles/blob/master/.Xresources).
+Make sure to install and configure those things if you want the same appearance as the screenshots.
+
+I took the wallpaper from [here](https://gitlab.com/dwt1/wallpapers/-/blob/master/0070.jpg).
+
+
 ## Screenshots
 
 ![neovim outline](https://i.imgur.com/HQpm4x2.png)

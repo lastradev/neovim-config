@@ -61,8 +61,8 @@ return require('packer').startup(function(use)
   use {'jiangmiao/auto-pairs'}
 
   -- FZF
- 	use {'junegunn/fzf', dir = '~/.fzf', run = './install --all' }
-	use {'junegunn/fzf.vim'}
+  use {'junegunn/fzf', dir = '~/.fzf', run = './install --all' }
+  use {'junegunn/fzf.vim'}
 
   -- Undotree
   use {'mbbill/undotree'}
@@ -96,7 +96,6 @@ return require('packer').startup(function(use)
 
   use {
     'tami5/lspsaga.nvim',
-    branch = 'nvim51',
     config = require 'modules.config.lspDiagnosticsSigns'
   }
 
@@ -179,16 +178,10 @@ return require('packer').startup(function(use)
     ft = 'python'
   }
 
-  -- Flutter
-  use {
-    'dart-lang/dart-vim-plugin',
-    ft = 'dart'
-  }
   use {
     'akinsho/flutter-tools.nvim',
     config = require 'modules.config.flutter-tools',
     require = {
-      {'dart-lang/dart-vim-plugin'},
       {'nvim-lua/plenary.nvim'}
     },
     ft = 'dart'
@@ -235,11 +228,10 @@ return require('packer').startup(function(use)
 
   -- Colorscheme
   use {
-      'navarasu/onedark.nvim',
-      branch = 'custom-colors',
-      config = function()
-        require('onedark').setup()
-      end
+    'lastra-dev/onedark.nvim',
+    config = function()
+      require('onedark').setup()
+    end
   }
 
   -- Personal snippets
@@ -248,10 +240,10 @@ return require('packer').startup(function(use)
     --requires = {'hrsh7th/nvim-cmp'}
   --}
 
-  -- Automatically set up your configuration after cloning packer.nvim
-  -- Put this at the end after all plugins
-  if PACKER_BOOTSTRAP then
-    require('packer').sync()
-  end
+-- Automatically set up your configuration after cloning packer.nvim
+-- Put this at the end after all plugins
+if PACKER_BOOTSTRAP then
+  require('packer').sync()
+end
 end)
 

@@ -1,14 +1,11 @@
 return function()
   local present, ftools = pcall(require, "flutter-tools")
   if not present then
-      return
+    return
   end
 
   ftools.setup {
-    debugger = { -- integrate with nvim dap + install dart code debugger
-      enabled = true
-    },
-  lsp = {
+    lsp = {
       settings = {
         analysisExcludedFolders = {
           "/home/oscargl/.pub-cache",
