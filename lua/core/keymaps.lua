@@ -14,9 +14,6 @@ map('i', '<C-c>', '<Esc>')
 -- Move right in insert mode, to close parenthesis
 map('i', '<C-l>', '<Right>')
 
--- Y to y$ theres not much explanation here!
-map('n', 'Y', 'y$')
-
 -- Panel switching
 map('n', '<leader>h', '<cmd>wincmd h<CR>')
 map('n', '<leader>j', '<cmd>wincmd j<CR>')
