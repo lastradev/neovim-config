@@ -5,16 +5,16 @@ return function()
   g.dashboard_disable_statusline = 1
   g.dashboard_custom_section = {
     find_files = {
-      description = { '  Find files                          SPC p s ' },
-      command = 'Files',
+      description = { '  Find files                          SPC f f ' },
+      command = 'Telescope find_files',
     },
     find_history = {
       description = { '  Recently opened files               SPC x x' },
-      command = 'History',
+      command = 'Telescope oldfiles',
     },
     find_word = {
-      description = { '  Find  word                          SPC f s' },
-      command = 'Ag',
+      description = { '  Find  word                          SPC f g' },
+      command = 'Telescope live_grep',
     },
     open_config = {
       description = { '  Open Config                         SPC x x' },
@@ -22,7 +22,7 @@ return function()
     },
     change_colorscheme = {
       description = { '  Change colorscheme                  SPC x x' },
-      command = 'Colors',
+      command = 'Telescope colorscheme',
     },
     new_file = {
       description = { '  New file                            SPC x x' },

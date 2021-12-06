@@ -8,9 +8,6 @@ map('n', 'Q', '<Nop>')
 -- Avoid command history
 map('n', 'q:', '<Nop>')
 
--- Updates diagnostics when exiting insert mode
-map('i', '<C-c>', '<Esc>')
-
 -- Move right in insert mode, to close parenthesis
 map('i', '<C-l>', '<Right>')
 
@@ -44,14 +41,9 @@ map('t', '<C-o>', [[<C-\><C-n>]])
 -- File tree
 map('n', '<leader>e', '<cmd>NvimTreeToggle<CR>')
 
--- Commenter <plug>NERDCommenterToggle didn't work
--- https://www.reddit.com/r/neovim/comments/kup1g0/feedkey_plug_in_lua_how/
-map('n', '++', [[<cmd>lua vim.fn.feedkeys(string.format('%c%c%cNERDCommenterToggle', 0x80, 253, 83))<CR>]])
-map('v', '++', [[<cmd>lua vim.fn.feedkeys(string.format('%c%c%cNERDCommenterToggle', 0x80, 253, 83))<CR>]])
-
--- FZF Project Search
-map('n', '<leader>ps', '<cmd>Files<CR>')
-map('n', '<leader>fs', '<cmd>Ag<CR>')
+-- Telescope
+map('n', '<leader>ff', '<cmd>Telescope find_files<CR>')
+map('n', '<leader>fg', '<cmd>Telescope live_grep<CR>')
 
 -- Flutter
 map('n', '<leader>fe', '<cmd>FlutterEmulators<CR>')
