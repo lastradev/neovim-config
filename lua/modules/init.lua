@@ -187,6 +187,7 @@ return require("packer").startup({
         ft = "dart"
       }
 
+      -- Cmp
       use "onsails/lspkind-nvim"
       use {"hrsh7th/nvim-cmp", config = require "modules.config.cmp"}
       use "hrsh7th/cmp-buffer"
@@ -195,8 +196,17 @@ return require("packer").startup({
       use "hrsh7th/cmp-nvim-lsp"
       use {"hrsh7th/cmp-calc", ft = "markdown"}
       use {"hrsh7th/cmp-emoji", ft = "markdown"}
-      use { 'L3MON4D3/LuaSnip' }
+      use {
+        'L3MON4D3/LuaSnip',
+        config = function ()
+          require("luasnip/loaders/from_vscode").lazy_load()
+          require'luasnip'.filetype_extend("dart", {"flutter"})
+        end
+        }
       use { 'saadparwaiz1/cmp_luasnip' }
+
+      -- Snippets
+      use { "rafamadriz/friendly-snippets", }
 
       -- Colorscheme
       use {

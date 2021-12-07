@@ -82,11 +82,11 @@ return function()
           TypeParameter = ' ',
         },
         menu = {
-          buffer = "[buff]",
+          buffer = "[BUF]",
           nvim_lsp = "[LSP]",
-          nvim_lua = "[api]",
-          path = "[path]",
-          luasnip = "[snip]",
+          nvim_lua = "[API]",
+          path = "[PTH]",
+          luasnip = "[SNP]",
         }
       },
     },
@@ -97,15 +97,41 @@ return function()
   }
 
   -- Setup lspconfig.
+  local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+
   require('lspconfig')['clangd'].setup {
-    capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+    capabilities = capabilities
   }
 
   require('lspconfig')['cssls'].setup {
-    capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+    capabilities = capabilities
   }
 
   require('lspconfig')['html'].setup {
-    capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+    capabilities = capabilities
+  }
+
+  require('lspconfig')['bashls'].setup {
+    capabilities = capabilities
+  }
+
+  require('lspconfig')['jsonls'].setup {
+    capabilities = capabilities
+  }
+
+  require('lspconfig')['pyright'].setup {
+    capabilities = capabilities
+  }
+
+  require('lspconfig')['sumneko_lua'].setup {
+    capabilities = capabilities
+  }
+
+  require('lspconfig')['tsserver'].setup {
+    capabilities = capabilities
+  }
+
+  require('lspconfig')['yamlls'].setup {
+    capabilities = capabilities
   }
 end
