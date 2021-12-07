@@ -51,11 +51,6 @@ vim.g['test#neovim#term_position'] = 'below 13'
 -- Auto Dart Format
 vim.g.dart_format_on_save = 1
 
--- Snippets flutter
-vim.api.nvim_command([[
-    autocmd BufRead,BufNewFile,BufEnter *.dart UltiSnipsAddFiletypes dart-flutter
-]])
-
 -- Python venv
 local python_path = '~/.local/venv/nvim'
 if vim.fn.empty(vim.fn.glob(python_path)) == 0 then

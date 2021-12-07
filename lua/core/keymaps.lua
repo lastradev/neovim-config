@@ -9,7 +9,7 @@ map('n', 'Q', '<Nop>')
 map('n', 'q:', '<Nop>')
 
 -- Move right in insert mode, to close parenthesis
-map('i', '<C-l>', '<Right>')
+-- map('i', '<C-l>', '<Right>')
 
 -- Panel switching
 map('n', '<leader>h', '<cmd>wincmd h<CR>')
@@ -26,8 +26,8 @@ map('n', '<leader>s', '<C-w>s')
 map('n', '<C-j>', ':m .+1<CR>==')
 map('n', '<C-k>', ':m .-2<CR>==')
 -- Insert mode
-map('i', '<C-j>', '<ESC>:m .+1<CR>==gi')
-map('i', '<C-k>', '<ESC>:m .-2<CR>==gi')
+-- map('i', '<C-j>', '<ESC>:m .+1<CR>==gi')
+-- map('i', '<C-k>', '<ESC>:m .-2<CR>==gi')
 -- Visual mode
 map('x', '<C-j>', ":m '>+1<CR>gv=gv")
 map('x', '<C-k>', ":m '<-2<CR>gv=gv")
@@ -118,3 +118,11 @@ map('n', '<BS>', '<C-^>')
 -- thanks to mincrmatt12
 -- https://stackoverflow.com/questions/67988374/neovim-lsp-auto-fix-fix-current
 map('n', '<leader>qf', "<cmd>lua require('lsp_fixcurrent')()<CR>")
+
+-- Lua Snips (couldn't find a way to map without vim cmd)
+vim.cmd [[
+  imap <silent><expr> <c-j> luasnip#expand_or_jumpable() ? '<Plug>luasnip-expand-or-jump' : '<c-j>'
+  inoremap <silent> <c-k> <cmd>lua require('luasnip').jump(-1)<CR>
+  snoremap <silent> <c-j> <cmd>lua require('luasnip').jump(1)<CR>
+  snoremap <silent> <c-k> <cmd>lua require('luasnip').jump(-1)<CR>
+]]
