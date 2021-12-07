@@ -38,6 +38,7 @@ Plugins courtesy of the community ❤️
 - Install [gcc](https://gcc.gnu.org/) for treesitter C compilation
 - Install [pynvim](https://github.com/neovim/pynvim) for snippets
 - Install [fd](https://github.com/sharkdp/fd) and [ripgrep](https://github.com/BurntSushi/ripgrep) for Telescope
+- Install [codicons font](https://github.com/microsoft/vscode-codicons/raw/main/dist/codicon.ttf) for lspkind
 
 Clone repo to your config folder (usually located in ~/.config/nvim)
 

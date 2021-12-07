@@ -53,6 +53,34 @@ return function()
     formatting = {
       format = lspkind.cmp_format {
         with_text = true,
+        maxwidth = 50,
+        symbol_map = {
+          Text = ' ',
+          Method = ' ',
+          Function = ' ',
+          Constructor = ' ',
+          Field = ' ',
+          Variable = ' ',
+          Class = ' ',
+          Interface = ' ',
+          Module = ' ',
+          Property = ' ',
+          Unit = ' ',
+          Value = ' ',
+          Enum = ' ',
+          Keyword = ' ',
+          Snippet = ' ',
+          Color = ' ',
+          File = ' ',
+          Reference = ' ',
+          Folder = ' ',
+          EnumMember = ' ',
+          Constant = ' ',
+          Struct = ' ',
+          Event = ' ',
+          Operator = ' ',
+          TypeParameter = ' ',
+        },
         menu = {
           buffer = "[buff]",
           nvim_lsp = "[LSP]",
@@ -63,6 +91,7 @@ return function()
       },
     },
     experimental = {
+      native_menu = false,
       ghost_text = true,
     }
   }
