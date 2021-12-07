@@ -13,7 +13,7 @@ return require("packer").startup({
       use "wbthomason/packer.nvim"
 
       -- Common dependencies
-      use {"nvim-lua/plenary.nvim"}
+      use "nvim-lua/plenary.nvim"
 
       -- Web-devicons
       use {
@@ -52,13 +52,12 @@ return require("packer").startup({
         "tpope/vim-fugitive",
         cmd = {
           "Git",
-          "GV"
+          "GV",
+          "G",
         }
       }
-      use {
-        "junegunn/gv.vim",
-        after = {"vim-fugitive"}
-      }
+
+      use { "junegunn/gv.vim", after = {"vim-fugitive"} }
 
       -- Auto pairs
       use {"jiangmiao/auto-pairs"}
@@ -155,10 +154,8 @@ return require("packer").startup({
       }
 
       -- Debugging
-      use {
-        "mfussenegger/nvim-dap",
-        config = require "modules.config.dap"
-      }
+      use { "mfussenegger/nvim-dap", config = require "modules.config.dap" }
+
       use {
         "rcarriga/nvim-dap-ui",
         config = function()
@@ -190,28 +187,6 @@ return require("packer").startup({
         ft = "dart"
       }
 
-      -- -- Completion and snippets
-      -- use {
-      --   "hrsh7th/nvim-cmp",
-      --   config = require "modules.config.cmp",
-      --   requires = {
-      --     "hrsh7th/vim-vsnip",
-      --     "hrsh7th/vim-vsnip-integ",
-      --     "hrsh7th/cmp-buffer",
-      --     "hrsh7th/cmp-nvim-lsp",
-      --     "hrsh7th/cmp-path",
-      --     "hrsh7th/cmp-vsnip",
-      --     "hrsh7th/cmp-calc",
-      --     {
-      --       "hrsh7th/cmp-emoji",
-      --       ft = "markdown"
-      --     },
-      --     "SirVer/ultisnips",
-      --     "quangnguyen30192/cmp-nvim-ultisnips",
-      --     "onsails/lspkind-nvim"
-      --   }
-      -- }
-
       use "onsails/lspkind-nvim"
       use {"hrsh7th/nvim-cmp", config = require "modules.config.cmp"}
       use "hrsh7th/cmp-buffer"
@@ -222,23 +197,6 @@ return require("packer").startup({
       use {"hrsh7th/cmp-emoji", ft = "markdown"}
       use { 'L3MON4D3/LuaSnip' }
       use { 'saadparwaiz1/cmp_luasnip' }
-
-      -- use {
-      --   "Nash0x7E2/awesome-flutter-snippets",
-      --   requires = {"hrsh7th/nvim-cmp"},
-      --   ft = "dart"
-      -- }
-
-      -- use {
-      --   "mlaursen/vim-react-snippets",
-      --   requires = {"hrsh7th/nvim-cmp"},
-      --   ft = {"javascript", "typescript"}
-      -- }
-
-      -- use {
-      --   "honza/vim-snippets",
-      --   requires = {"hrsh7th/nvim-cmp"}
-      -- }
 
       -- Colorscheme
       use {
