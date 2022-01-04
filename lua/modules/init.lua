@@ -39,11 +39,9 @@ return require("packer").startup({
 			run = ":TSUpdate",
 		})
 
-		-- Galaxyline
 		use({
-			"glepnir/galaxyline.nvim",
-			branch = "main",
-			config = require("modules.config.galaxyline"),
+			"nvim-lualine/lualine.nvim",
+			config = require('lualine').setup(),
 			requires = { "kyazdani42/nvim-web-devicons" },
 		})
 
