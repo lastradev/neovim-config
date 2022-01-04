@@ -119,6 +119,11 @@ map("n", "<BS>", "<C-^>")
 -- https://stackoverflow.com/questions/67988374/neovim-lsp-auto-fix-fix-current
 map("n", "<leader>qf", "<cmd>lua require('lsp_fixcurrent')()<CR>")
 
+-- cht.sh
+map("n", "<leader>cs", "<cmd>lua require'cht-sh'.search()<CR>")
+map("n", "<leader>cS", "<cmd>lua require'cht-sh'.search_lang()<CR>")
+map("n", "<leader>ocs", "<cmd>lua require'cht-sh'.open_search()<CR>")
+
 -- Lua Snips (couldn't find a way to map without vim cmd)
 vim.cmd([[
   imap <silent><expr> <c-j> luasnip#expand_or_jumpable() ? '<Plug>luasnip-expand-or-jump' : '<c-j>'

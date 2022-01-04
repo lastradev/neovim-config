@@ -9,7 +9,7 @@ return function()
 			settings = {
 				analysisExcludedFolders = {
 					"/home/oscargl/.pub-cache",
-					"/development/flutter/packages",
+					"/development/flutter",
 				},
 			},
 		},

@@ -227,6 +227,8 @@ return require("packer").startup({
 			config = require("modules.config.telescope"),
 		})
 
+		use("/home/oscargl/cht-sh.nvim")
+
 		-- Automatically set up your configuration after cloning packer.nvim
 		if PACKER_BOOTSTRAP then
 			require("packer").sync()
