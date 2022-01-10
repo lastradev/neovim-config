@@ -163,7 +163,11 @@ return function()
 	})
 
 	table.insert(gls.right, {
-		DiagnosticError = { provider = "DiagnosticError", icon = "  ", highlight = { colors.error_red, colors.bg } },
+		DiagnosticError = {
+			provider = "DiagnosticError",
+			icon = "  ",
+			highlight = { colors.error_red, colors.bg },
+		},
 	})
 	table.insert(
 		gls.right,
@@ -176,7 +180,13 @@ return function()
 
 	table.insert(
 		gls.right,
-		{ DiagnosticInfo = { provider = "DiagnosticInfo", icon = "  ", highlight = { colors.info_yellow, colors.bg } } }
+		{
+			DiagnosticInfo = {
+				provider = "DiagnosticInfo",
+				icon = "  ",
+				highlight = { colors.info_yellow, colors.bg },
+			},
+		}
 	)
 
 	table.insert(gls.right, {

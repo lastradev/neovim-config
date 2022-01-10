@@ -41,7 +41,11 @@ return require("packer").startup({
 
 		use({
 			"nvim-lualine/lualine.nvim",
-			config = require('lualine').setup(),
+			config = require("lualine").setup({
+				options = {
+					theme = "onedark",
+				},
+			}),
 			requires = { "kyazdani42/nvim-web-devicons" },
 		})
 
@@ -178,12 +182,6 @@ return require("packer").startup({
 			end,
 		})
 
-		-- Python formater
-		use({
-			"psf/black",
-			ft = "python",
-		})
-
 		use({
 			"akinsho/flutter-tools.nvim",
 			config = require("modules.config.flutter-tools"),
@@ -216,7 +214,7 @@ return require("packer").startup({
 
 		-- Colorscheme
 		use({
-			"lastra-dev/onedark.nvim",
+			"navarasu/onedark.nvim",
 			config = require("modules.config.onedark-theme"),
 		})
 
@@ -226,6 +224,11 @@ return require("packer").startup({
 		})
 
 		use("/home/oscargl/cht-sh.nvim")
+
+		use({
+			"jose-elias-alvarez/null-ls.nvim",
+			config = require("modules.config.null-ls"),
+		})
 
 		-- Automatically set up your configuration after cloning packer.nvim
 		if PACKER_BOOTSTRAP then
