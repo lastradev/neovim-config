@@ -34,6 +34,7 @@ return function()
 			DashboardHeader = { fg = "$green" },
 			DashboardCenter = { fg = "$blue" },
 			DashboardFooter = { fg = "$cyan", italic = true },
+			TSOperator = { fg = "$purple" }
 		}, -- Override highlight groups
 		-- Plugins Config --
 		diagnostics = {
