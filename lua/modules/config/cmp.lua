@@ -10,35 +10,20 @@ return function()
 	cmp.setup({
 		snippet = {
 			expand = function(args)
-				require("luasnip").lsp_expand(args.body)
+				require("luasnip").lsp_expand(args.body) -- For `luasnip` users.
 			end,
 		},
-		mapping = {
-			["<C-b>"] = cmp.mapping(cmp.mapping.scroll_docs(-4), { "i", "c" }),
-			["<C-f>"] = cmp.mapping(cmp.mapping.scroll_docs(4), { "i", "c" }),
-			["<C-e>"] = cmp.mapping({
-				i = cmp.mapping.abort(),
-				c = cmp.mapping.close(),
-			}),
-			["<C-y>"] = cmp.mapping.confirm({
-				behavior = cmp.ConfirmBehavior.Insert,
-				select = true,
-			}, { "i", "c" }),
-			["<c-space>"] = cmp.mapping({
-				i = cmp.mapping.complete(),
-				c = function(
-					_ --[[fallback]]
-				)
-					if cmp.visible() then
-						if not cmp.confirm({ select = true }) then
-							return
-						end
-					else
-						cmp.complete()
-					end
-				end,
-			}),
+		window = {
+			completion = cmp.config.window.bordered(),
+			documentation = cmp.config.window.bordered(),
 		},
+		mapping = cmp.mapping.preset.insert({
+			["<C-b>"] = cmp.mapping.scroll_docs(-4),
+			["<C-f>"] = cmp.mapping.scroll_docs(4),
+			["<C-Space>"] = cmp.mapping.complete(),
+			["<C-e>"] = cmp.mapping.abort(),
+			["<CR>"] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+		}),
 		sources = cmp.config.sources({
 			{ name = "nvim_lua" },
 			{ name = "nvim_lsp" },
@@ -47,10 +32,12 @@ return function()
 			{ name = "calc" },
 			{ name = "emoji" },
 			{ name = "buffer", keyword_length = 5 },
+		}, {
+			{ name = "buffer" },
 		}),
 		formatting = {
 			format = lspkind.cmp_format({
-				mode = 'symbol_text',
+				mode = "symbol_text",
 				maxwidth = 50,
 				symbol_map = {
 					Text = " ",
@@ -94,6 +81,16 @@ return function()
 		},
 	})
 
+	-- Set configuration for specific filetype.
+	cmp.setup.filetype("gitcommit", {
+		sources = cmp.config.sources({
+			{ name = "cmp_git" },
+			{ name = "luasnip" },
+		}, {
+			{ name = "buffer" },
+		}),
+	})
+
 	-- Setup lspconfig.
 	local capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities())
 
@@ -110,10 +107,6 @@ return function()
 	})
 
 	require("lspconfig")["tsserver"].setup({
-		capabilities = capabilities,
-	})
-
-	require("lspconfig")["yamlls"].setup({
 		capabilities = capabilities,
 	})
 end

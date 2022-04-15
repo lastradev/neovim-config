@@ -141,9 +141,6 @@ return require("packer").startup({
 			end,
 		})
 
-		-- Cursor highlight
-		use({ "xiyaowong/nvim-cursorword" })
-
 		-- Testing
 		use({
 			"vim-test/vim-test",
@@ -198,6 +195,13 @@ return require("packer").startup({
 		use("hrsh7th/cmp-path")
 		use("hrsh7th/cmp-nvim-lua")
 		use("hrsh7th/cmp-nvim-lsp")
+		use({
+			"petertriho/cmp-git",
+			requires = "nvim-lua/plenary.nvim",
+			config = function()
+				require("cmp_git").setup()
+			end,
+		})
 		use({ "hrsh7th/cmp-calc", ft = "markdown" })
 		use({ "hrsh7th/cmp-emoji", ft = "markdown" })
 		use({
