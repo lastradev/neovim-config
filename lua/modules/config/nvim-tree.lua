@@ -4,9 +4,6 @@ return function()
 		return
 	end
 
-	local g = vim.g
-	g.nvim_tree_highlight_opened_files = 1 -- 0 by default, will enable folder and file icon highlight for opened files/directories.
-
 	nvim_tree.setup({
 		disable_netrw = true,
 		hijack_netrw = true,
@@ -15,9 +12,8 @@ return function()
 		open_on_tab = false,
 		hijack_cursor = false,
 		update_cwd = false,
-		update_to_buf_dir = {
-			enable = true,
-			auto_open = true,
+		renderer = {
+			highlight_opened_files = "all",
 		},
 		diagnostics = {
 			enable = true,
@@ -51,7 +47,7 @@ return function()
 			height = 30,
 			hide_root_folder = false,
 			side = "left",
-			auto_resize = false,
+			adaptive_size = true,
 			mappings = {
 				custom_only = false,
 				list = {},

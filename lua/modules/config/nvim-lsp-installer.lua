@@ -1,31 +1,26 @@
 return function()
-	local present, lsp_installer = pcall(require, "nvim-lsp-installer")
-	if not present then
+	local lsp_installer = require("nvim-lsp-installer")
+	local lspconfig = require("lspconfig")
+	if not lsp_installer or not lspconfig then
 		return
 	end
 
-	lsp_installer.settings({
-		install_root_dir = "/development/lsp_servers",
+	lsp_installer.setup({
+		automatic_installation = true, -- automatically detect which servers to install (based on which servers are set up via lspconfig)
 	})
-
-	-- Register a handler that will be called for all installed servers.
-	-- Alternatively, you may also register handlers on specific server instances instead (see example below).
-	lsp_installer.on_server_ready(function(server)
-		local opts = {}
-
-		-- (optional) Customize the options passed to the server
-		if server.name == "sumneko_lua" then
-			opts.settings = {
-				Lua = {
-					diagnostics = {
-						globals = { "vim" },
+	lspconfig.sumneko_lua.setup({
+		settings = {
+			Lua = {
+				diagnostics = {
+					globals = {
+						"vim",
 					},
 				},
-			}
-		end
-
-		-- This setup() function is exactly the same as lspconfig's setup function.
-		-- Refer to https://github.com/neovim/nvim-lspconfig/blob/master/ADVANCED_README.md
-		server:setup(opts)
-	end)
+			},
+		},
+	})
+	local servers = { "tsserver", "clangd", "cssls", "html", "pyright" }
+	for _, server in pairs(servers) do
+		lspconfig[server].setup({})
+	end
 end

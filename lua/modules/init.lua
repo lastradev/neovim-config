@@ -100,10 +100,10 @@ return require("packer").startup({
 		})
 
 		-- LSP
+		use({ "neovim/nvim-lspconfig" })
 		use({
 			"williamboman/nvim-lsp-installer",
 			config = require("modules.config.nvim-lsp-installer"),
-			requires = { "neovim/nvim-lspconfig" },
 		})
 
 		use({
@@ -174,8 +174,9 @@ return require("packer").startup({
 		-- Terminal
 		use({
 			"akinsho/toggleterm.nvim",
+			tag = "v1.*",
 			config = function()
-				require("toggleterm").setup({})
+				require("toggleterm").setup()
 			end,
 		})
 
@@ -233,6 +234,8 @@ return require("packer").startup({
 			"jose-elias-alvarez/null-ls.nvim",
 			config = require("modules.config.null-ls"),
 		})
+
+		use({ "windwp/nvim-ts-autotag" })
 
 		-- Automatically set up your configuration after cloning packer.nvim
 		if PACKER_BOOTSTRAP then

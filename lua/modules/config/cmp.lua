@@ -67,11 +67,11 @@ return function()
 					TypeParameter = " ",
 				},
 				menu = {
-					buffer = "[BUF]",
 					nvim_lsp = "[LSP]",
 					nvim_lua = "[API]",
 					path = "[PTH]",
 					luasnip = "[SNP]",
+					buffer = "[BUF]",
 				},
 			}),
 		},
