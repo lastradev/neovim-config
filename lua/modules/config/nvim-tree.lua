@@ -44,10 +44,9 @@ return function()
 		},
 		view = {
 			width = 30,
-			height = 30,
 			hide_root_folder = false,
 			side = "left",
-			adaptive_size = true,
+			adaptive_size = false,
 			mappings = {
 				custom_only = false,
 				list = {},

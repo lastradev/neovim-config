@@ -12,7 +12,7 @@ return function()
 		term_colors = true, -- Change terminal color as per the selected theme style
 		ending_tildes = false, -- show the end-of-buffer tildes. By default they are hidden
 		-- toggle theme style ---
-		-- toggle_style_key = "<leader>z", -- Default keybinding to toggle
+		toggle_style_key = "<leader>ct", -- Default keybinding to toggle
 		toggle_style_list = { "deep", "light" }, --list of styles to toggle amoung
 		-- Change code style ---
 		-- Options are italic, bold, underline, none

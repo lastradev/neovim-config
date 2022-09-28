@@ -1,7 +1,4 @@
-require("impatient")
-
-require("core.options")
-require("packer_compiled")
-require("modules")
-require("core.keymaps")
-require("core.colors")
+require('impatient')
+require('core.options')
+require('core.keymaps')
+require('modules')

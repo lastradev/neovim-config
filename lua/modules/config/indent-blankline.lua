@@ -19,7 +19,7 @@ return function()
 			"",
 		},
 		buftype_exclude = { "terminal" },
-		show_trailing_blankline_indent = 0,
-		show_first_indent_level = 0,
+		show_trailing_blankline_indent = false,
+		show_first_indent_level = false,
 	})
 end

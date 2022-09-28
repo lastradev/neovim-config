@@ -34,7 +34,7 @@ map("x", "<C-k>", ":m '<-2<CR>gv=gv")
 
 -- Terminal
 -- Enter terminal mode
-map("n", "<leader>t", ":ToggleTerm()<CR>")
+map("n", "<leader>t", "<cmd>ToggleTerm<cr>")
 -- Exit insert mode in terminal
 map("t", "<C-o>", [[<C-\><C-n>]])
 
@@ -57,7 +57,7 @@ map("n", "<leader>fc", "<cmd>below new __FLUTTER_DEV_LOG__<CR>")
 map("n", "<leader>fo", "<cmd>lua vim.lsp.buf.formatting()<CR>")
 
 -- Undotree
-map("n", "<leader>u", "<cmd>UndotreeShow<CR>")
+-- map("n", "<leader>u", "<cmd>UndotreeShow<CR>")
 
 -- Test suite
 map("n", "t<C-n>", "<cmd>TestNearest<CR>")
@@ -67,28 +67,10 @@ map("n", "t<C-l>", "<cmd>TestLast<CR>")
 map("n", "t<C-g>", "<cmd>TestVisit<CR>")
 
 -- Lsp Saga
--- Finder
-map("n", "gh", "<cmd>Lspsaga lsp_finder<CR>")
--- Code action
-map("n", "<leader>a", "<cmd>Lspsaga code_action<CR>")
-map("x", "<leader>a", ":<c-u>Lspsaga range_code_action<CR>")
--- Hover doc
-map("n", "K", "<cmd>Lspsaga hover_doc<CR>")
-map("n", "<C-b>", "<cmd>lua require('lspsaga.action').smart_scroll_with_saga(1)<CR>")
-map("n", "<C-f>", "<cmd>lua require('lspsaga.action').smart_scroll_with_saga(-1)<CR>")
--- Signature help
-map("n", "gs", "<cmd>Lspsaga signature_help<CR>")
--- Rename
-map("n", "<leader>rn", "<cmd>Lspsaga rename<CR>")
--- Go to definition
-map("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>")
--- Preview definition
-map("n", "gD", "<cmd>Lspsaga preview_definition<CR>")
--- Show diagnostics
-map("n", "<leader>cd", "<cmd>Lspsaga show_line_diagnostics<CR>")
--- Jump through diagnostics
-map("n", "[e", "<cmd>Lspsaga diagnostic_jump_next<CR>")
-map("n", "]e", "<cmd>Lspsaga diagnostic_jump_prev<CR>")
+-- Defined in modules/config/nvim-lsp-installer.lua
+
+-- Git
+-- Defined in modules/config/gitsigns.lua
 
 -- Quick fix trouble
 map("n", "<leader>xx", "<cmd>TroubleToggle<CR>")
@@ -97,7 +79,6 @@ map("n", "<leader>xd", "<cmd>TroubleToggle lsp_document_diagnostics<CR>")
 map("n", "<leader>xq", "<cmd>TroubleToggle quickfix<CR>")
 map("n", "<leader>xl", "<cmd>TroubleToggle loclist<CR>")
 map("n", "<leader>xl", "<cmd>TroubleToggle loclist<CR>")
-map("n", "gr", "<cmd>TroubleToggle lsp_references<CR>")
 
 -- Breakpoints for undo
 map("i", ",", ",<c-g>u")
@@ -120,9 +101,9 @@ map("n", "<BS>", "<C-^>")
 map("n", "<leader>qf", "<cmd>lua require('lsp_fixcurrent')()<CR>")
 
 -- cht.sh
-map("n", "<leader>cs", "<cmd>lua require'cht-sh'.search()<CR>")
-map("n", "<leader>cS", "<cmd>lua require'cht-sh'.search_lang()<CR>")
-map("n", "<leader>ocs", "<cmd>lua require'cht-sh'.open_search()<CR>")
+-- map("n", "<leader>cs", "<cmd>lua require'cht-sh'.search()<CR>")
+-- map("n", "<leader>cS", "<cmd>lua require'cht-sh'.search_lang()<CR>")
+-- map("n", "<leader>ocs", "<cmd>lua require'cht-sh'.open_search()<CR>")
 
 -- Lua Snips (couldn't find a way to map without vim cmd)
 vim.cmd([[
