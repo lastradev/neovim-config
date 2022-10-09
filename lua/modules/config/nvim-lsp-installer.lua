@@ -45,9 +45,14 @@ return function()
 		nmap('<leader>D', vim.lsp.buf.type_definition, 'Type [D]efinition')
 		nmap('<leader>wa', vim.lsp.buf.add_workspace_folder, '[W]orkspace [A]dd Folder')
 		nmap('<leader>wr', vim.lsp.buf.remove_workspace_folder, '[W]orkspace [R]emove Folder')
+
 		nmap('<leader>wl', function()
 			print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
 		end, '[W]orkspace [L]ist Folders')
+
+		nmap("<leader>fo", function()
+			vim.lsp.buf.format { async = true }
+		end, '[Fo]rmat Document')
 
 		-- Create a command `:Format` local to the LSP buffer
 		vim.api.nvim_buf_create_user_command(bufnr, 'Format', vim.lsp.buf.format or vim.lsp.buf.formatting,
@@ -83,6 +88,7 @@ return function()
 		},
 	})
 
+	-- Installed through rbenv
 	lspconfig.solargraph.setup({
 		on_attach = on_attach,
 		capabilities = capabilities,

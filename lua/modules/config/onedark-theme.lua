@@ -29,6 +29,7 @@ return function()
 			bg1 = "#282A36",
 		}, -- Override default colors
 		highlights = {
+			Visual = {bg = "#0664D3"},
 			NvimTreeNormal = { bg = "#282A36" },
 			DashboardShortCut = { fg = "$yellow" },
 			DashboardHeader = { fg = "$green" },

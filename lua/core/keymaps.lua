@@ -46,15 +46,15 @@ map("n", "<leader>ff", "<cmd>Telescope find_files<CR>")
 map("n", "<leader>fg", "<cmd>Telescope live_grep<CR>")
 
 -- Flutter
-map("n", "<leader>fe", "<cmd>FlutterEmulators<CR>")
-map("n", "<leader>fe", "<cmd>!flutter emulators --launch Pixel_2_API_30<CR>")
-map("n", "<leader>fr", "<cmd>FlutterRun<CR>")
-map("n", "<leader>fh", "<cmd>FlutterRestart<CR>")
-map("n", "<leader>fq", "<cmd>FlutterQuit<CR>")
-map("n", "<leader>fc", "<cmd>below new __FLUTTER_DEV_LOG__<CR>")
+-- map("n", "<leader>fe", "<cmd>FlutterEmulators<CR>")
+-- map("n", "<leader>fe", "<cmd>!flutter emulators --launch Pixel_2_API_30<CR>")
+-- map("n", "<leader>fr", "<cmd>FlutterRun<CR>")
+-- map("n", "<leader>fh", "<cmd>FlutterRestart<CR>")
+-- map("n", "<leader>fq", "<cmd>FlutterQuit<CR>")
+-- map("n", "<leader>fc", "<cmd>below new __FLUTTER_DEV_LOG__<CR>")
 
 -- Format Files
-map("n", "<leader>fo", "<cmd>lua vim.lsp.buf.formatting()<CR>")
+-- map("n", "<leader>fo", "<cmd>lua vim.lsp.buf.formatting()<CR>")
 
 -- Undotree
 -- map("n", "<leader>u", "<cmd>UndotreeShow<CR>")
