@@ -24,10 +24,10 @@ return function ()
     "",
   }
   db.custom_center = {
-    {icon = '  ', desc = 'Find  File                              ', action = 'Telescope find_files find_command=rg,--hidden,--files', shortcut = 'SPC f f'},
-    {icon = '  ', desc = 'Recently opened files                   ', action = 'Telescope oldfiles', shortcut = 'SPC x x'},
+    {icon = '  ', desc = 'Find  File                              ', action = 'Telescope find_files', shortcut = 'SPC f f'},
+    {icon = '  ', desc = 'Light Mode                              ', action = 'Catppuccin latte', shortcut = 'SPC x x'},
     {icon = '  ', desc = 'Find  word                              ', action = 'Telescope live_grep', shortcut = 'SPC f g'},
-    {icon = '  ', desc = 'Open Config                             ', action = 'new | wincmd j | q | cd ~/.config/nvim/ | e ./init.lua', shortcut = 'SPC x x' },
+    {icon = '  ', desc = 'Open Config                             ', action = 'cd ~/.config/nvim/ | e ./init.lua', shortcut = 'SPC x x' },
     {icon = '  ', desc = 'New File                                ', action = 'DashboardNewFile', shortcut = 'SPC x x'},
   }
 end

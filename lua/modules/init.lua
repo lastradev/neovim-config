@@ -7,35 +7,37 @@ if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
   vim.cmd [[packadd packer.nvim]]
 end
 
--- stylua: ignore start
 require('packer').startup(function(use)
   -- Package manager
   use 'wbthomason/packer.nvim'
+
   -- Git commands in nvim
-  use({ 'tpope/vim-fugitive', cmd = { 'Git', 'GV', 'G', }, })
+  use({ 'tpope/vim-fugitive' })
+
   -- Fugitive-companion to interact with github
   --  use 'tpope/vim-rhubarb'
+
   -- Add git related info in the signs columns and popups
   use { 'lewis6991/gitsigns.nvim',
     config = require('modules.config.gitsigns'),
     requires = 'nvim-lua/plenary.nvim'
   }
+
   -- 'gc' to comment visual regions/lines
   use({ 'numToStr/Comment.nvim', config = function() require('Comment').setup() end, })
+
   -- Highlight, edit, and navigate code
   use {
     'nvim-treesitter/nvim-treesitter',
     config = require('modules.config.treesitter'),
     run = function() require('nvim-treesitter.install').update({ with_sync = true }) end,
   }
-  -- Additional textobjects for treesitter
-  --  use 'nvim-treesitter/nvim-treesitter-textobjects'
-  -- Collection of configurations for built-in LSP client
-  use { 'neovim/nvim-lspconfig', config = require('modules.config.lsp-diagnostics-signs') }
-  -- Automatically install language servers to stdpath
-  use({ 'williamboman/nvim-lsp-installer',
-    requires = { 'nvim-telescope/telescope.nvim', 'hrsh7th/nvim-cmp', 'tami5/lspsaga.nvim' },
-    config = require('modules.config.nvim-lsp-installer'), })
+
+  -- LSP
+  use { 'williamboman/mason.nvim', config = function() require('mason').setup() end }
+  use { 'williamboman/mason-lspconfig.nvim', config = require('modules.config.mason-lspconfig') }
+  use { 'neovim/nvim-lspconfig', config = require('modules.config.lspconfig') }
+
   -- Autocompletion
   use { 'hrsh7th/nvim-cmp',
     requires = {
@@ -57,6 +59,7 @@ require('packer').startup(function(use)
     },
     config = require('modules.config.cmp')
   }
+
   -- Snippet Engine and Snippet Expansion
   use({
     'L3MON4D3/LuaSnip',
@@ -66,34 +69,51 @@ require('packer').startup(function(use)
       require('luasnip').filetype_extend('dart', { 'flutter' })
     end,
   })
+
   -- Snippets
   use({ "rafamadriz/friendly-snippets" })
+
   --Colorscheme
-  use({ 'navarasu/onedark.nvim', config = require('modules.config.onedark-theme'), })
+  use {
+    "catppuccin/nvim",
+    as = "catppuccin",
+    config = require('modules.config.catppuccin-theme')
+  }
+
   -- Fancier statusline
   use({
     'nvim-lualine/lualine.nvim',
-    config = function() require('lualine').setup({ options = { theme = 'auto' } }) end,
+    config = function() require('lualine').setup({ options = { theme = 'catppuccin' } }) end,
     requires = { 'kyazdani42/nvim-web-devicons' },
   })
+
   -- Add indentation guides even on blank lines
   use({ 'lukas-reineke/indent-blankline.nvim', config = require('modules.config.indent-blankline'), })
+
   -- Detect tabstop and shiftwidth automatically
   use 'tpope/vim-sleuth'
+
   -- Fuzzy Finder (files, lsp, etc)
   use { 'nvim-telescope/telescope.nvim', requires = { 'nvim-lua/plenary.nvim' } }
+
   -- Fuzzy Finder Algorithm which requires local dependencies to be built. Only load if `make` is available
   use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make', cond = vim.fn.executable 'make' == 1 }
+
   -- Auto pairs
   use 'jiangmiao/auto-pairs'
+
   -- HEX Colors
   use({ 'norcalli/nvim-colorizer.lua', config = function() require('colorizer').setup() end, })
+
   -- Play with surronding symbols in words, sentences, etc.
   use 'tpope/vim-surround'
+
   -- Dashboard
   use({ 'glepnir/dashboard-nvim', config = require('modules.config.dashboard'), })
+
   -- Fancy lsp options
   use 'tami5/lspsaga.nvim'
+
   -- Quickfix trouble
   use({
     "folke/trouble.nvim",
@@ -102,22 +122,29 @@ require('packer').startup(function(use)
       require("trouble").setup()
     end,
   })
+
   -- Testing
   use({ "vim-test/vim-test", cmd = { "TestFile", "TestLast", "TestNearest", "TestSuite", "TestVisit", }, })
+
   -- File tree
   use({
     "kyazdani42/nvim-tree.lua",
     requires = "kyazdani42/nvim-web-devicons",
     config = require("modules.config.nvim-tree"),
   })
+
   -- Terminal in nvim
-  use { "akinsho/toggleterm.nvim", tag = 'v2.*', config = function() require("toggleterm").setup() end }
+  use { "akinsho/toggleterm.nvim", tag = '*', config = function() require("toggleterm").setup() end }
+
   -- Additions to LSP
   use({ "jose-elias-alvarez/null-ls.nvim", config = require("modules.config.null-ls"), })
+
   -- Autoclose html tags
   use({ "windwp/nvim-ts-autotag" })
+
   -- Faster loading
   use 'lewis6991/impatient.nvim'
+
   -- Flutter tools
   use { 'akinsho/flutter-tools.nvim', requires = 'nvim-lua/plenary.nvim',
     config = require("modules.config.flutter-tools"), ft = "dart" }
@@ -126,7 +153,6 @@ require('packer').startup(function(use)
     require('packer').sync()
   end
 end)
--- stylua: ignore end
 
 -- When we are bootstrapping a configuration, it doesn't
 -- make sense to execute the rest of the init.lua.

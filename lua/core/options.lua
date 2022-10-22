@@ -10,6 +10,7 @@ o.termguicolors = true
 o.wrap = false
 o.ruler = false
 o.guicursor = ""
+o.mouse = ""
 
 -- Backups
 o.backup = false
