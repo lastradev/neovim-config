@@ -96,7 +96,8 @@ return function()
     capabilities = capabilities,
     settings = {
       solargraph = {
-        diagnostics = true
+        diagnostics = true,
+        formatting = true,
       }
     }
   })

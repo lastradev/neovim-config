@@ -3,32 +3,44 @@ return function ()
   if not present then
     return
   end
-
-  -- local home = os.getenv('HOME')
-  -- db.preview_command = 'cat | lolcat -F 0.3'
-  -- db.preview_file_path = home .. '/.config/nvim/static/neovim.cat'
-  -- db.preview_file_height = 9
-  -- db.preview_file_width = 54
-  db.custom_header = {
-    "",
-    "",
-    "",
-    " ███╗   ██╗ ███████╗ ██████╗  ██╗   ██╗ ██╗ ███╗   ███╗",
-    " ████╗  ██║ ██╔════╝██╔═══██╗ ██║   ██║ ██║ ████╗ ████║",
-    " ██╔██╗ ██║ █████╗  ██║   ██║ ██║   ██║ ██║ ██╔████╔██║",
-    " ██║╚██╗██║ ██╔══╝  ██║   ██║ ╚██╗ ██╔╝ ██║ ██║╚██╔╝██║",
-    " ██║ ╚████║ ███████╗╚██████╔╝  ╚████╔╝  ██║ ██║ ╚═╝ ██║",
-    " ╚═╝  ╚═══╝ ╚══════╝ ╚═════╝    ╚═══╝   ╚═╝ ╚═╝     ╚═╝",
-    "",
-    "",
-    "",
-  }
-  db.custom_center = {
-    {icon = '  ', desc = 'Find  File                              ', action = 'Telescope find_files', shortcut = 'SPC f f'},
-    {icon = '  ', desc = 'Light Mode                              ', action = 'Catppuccin latte', shortcut = 'SPC x x'},
-    {icon = '  ', desc = 'Find  word                              ', action = 'Telescope live_grep', shortcut = 'SPC f g'},
-    {icon = '  ', desc = 'Open Config                             ', action = 'cd ~/.config/nvim/ | e ./init.lua', shortcut = 'SPC x x' },
-    {icon = '  ', desc = 'New File                                ', action = 'DashboardNewFile', shortcut = 'SPC x x'},
-  }
+    db.setup({
+      theme = 'doom',
+      config = {
+      header = {
+      "",
+      "",
+      "",
+      " ███╗   ██╗ ███████╗ ██████╗  ██╗   ██╗ ██╗ ███╗   ███╗",
+      " ████╗  ██║ ██╔════╝██╔═══██╗ ██║   ██║ ██║ ████╗ ████║",
+      " ██╔██╗ ██║ █████╗  ██║   ██║ ██║   ██║ ██║ ██╔████╔██║",
+      " ██║╚██╗██║ ██╔══╝  ██║   ██║ ╚██╗ ██╔╝ ██║ ██║╚██╔╝██║",
+      " ██║ ╚████║ ███████╗╚██████╔╝  ╚████╔╝  ██║ ██║ ╚═╝ ██║",
+      " ╚═╝  ╚═══╝ ╚══════╝ ╚═════╝    ╚═══╝   ╚═╝ ╚═╝     ╚═╝",
+      "",
+      "",
+      "",
+      }, --your header
+        center = {
+          {
+            icon = ' ',
+            icon_hl = 'Title',
+            desc = 'Find File           ',
+            desc_hl = 'String',
+            key = 'b',
+            keymap = 'SPC f f',
+            key_hl = 'Number',
+            action = 'lua print(2)'
+          },
+          {
+            icon = ' ',
+            desc = 'Find Dotfiles',
+            key = 'f',
+            keymap = 'SPC f d',
+            action = 'lua print(3)'
+          },
+        },
+        footer = {}  --your footer
+      }
+    })
 end
 

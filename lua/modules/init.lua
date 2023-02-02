@@ -109,7 +109,12 @@ require('packer').startup(function(use)
   use 'tpope/vim-surround'
 
   -- Dashboard
-  use({ 'glepnir/dashboard-nvim', config = require('modules.config.dashboard'), })
+  use {
+    'glepnir/dashboard-nvim',
+    event = 'VimEnter',
+    config = require('modules.config.dashboard'),
+    requires = {'nvim-tree/nvim-web-devicons'}
+  }
 
   -- Fancy lsp options
   use 'tami5/lspsaga.nvim'
@@ -148,6 +153,21 @@ require('packer').startup(function(use)
   -- Flutter tools
   use { 'akinsho/flutter-tools.nvim', requires = 'nvim-lua/plenary.nvim',
     config = require("modules.config.flutter-tools"), ft = "dart" }
+
+  -- Rails
+  use { 'tpope/vim-rails' }
+
+  -- Asynchronous Rails Commands
+  use { 'tpope/vim-dispatch' }
+
+  -- Database in nvim
+  use { 'tpope/vim-dadbod' }
+
+  -- Pluralize
+  use { 'tpope/vim-abolish' }
+
+  -- Goodies for ruby gems
+  use { 'tpope/vim-bundler' }
 
   if is_bootstrap then
     require('packer').sync()
