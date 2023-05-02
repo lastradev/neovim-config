@@ -38,19 +38,8 @@ vim_keymap.set("n", "<leader>e", "<cmd>NvimTreeToggle<CR>")
 vim_keymap.set("n", "<leader>ff", "<cmd>Telescope find_files<CR>")
 vim_keymap.set("n", "<leader>fg", "<cmd>Telescope live_grep<CR>")
 
--- Flutter
--- vim_keymap.set("n", "<leader>fe", "<cmd>FlutterEmulators<CR>")
--- vim_keymap.set("n", "<leader>fe", "<cmd>!flutter emulators --launch Pixel_2_API_30<CR>")
--- vim_keymap.set("n", "<leader>fr", "<cmd>FlutterRun<CR>")
--- vim_keymap.set("n", "<leader>fh", "<cmd>FlutterRestart<CR>")
--- vim_keymap.set("n", "<leader>fq", "<cmd>FlutterQuit<CR>")
--- vim_keymap.set("n", "<leader>fc", "<cmd>below new __FLUTTER_DEV_LOG__<CR>")
-
 -- Format Files
 vim_keymap.set("n", "<leader>fo", function() vim.lsp.buf.format { async = true } end)
-
--- Undotree
--- vim_keymap.set("n", "<leader>u", "<cmd>UndotreeShow<CR>")
 
 -- Test suite
 vim_keymap.set("n", "t<C-n>", "<cmd>TestNearest<CR>")
@@ -59,11 +48,11 @@ vim_keymap.set("n", "t<C-s>", "<cmd>TestSuite<CR>")
 vim_keymap.set("n", "t<C-l>", "<cmd>TestLast<CR>")
 vim_keymap.set("n", "t<C-g>", "<cmd>TestVisit<CR>")
 
--- Lsp Saga
--- Defined in modules/config/nvim-lsp-installer.lua
+-- Lsp
+-- Defined in ../plugins/lsp.lua
 
 -- Git
--- Defined in modules/config/gitsigns.lua
+-- Defined in ../plugins/git.lua
 
 -- Quick fix trouble
 vim_keymap.set("n", "<leader>xx", "<cmd>TroubleToggle<CR>")
@@ -78,12 +67,6 @@ vim_keymap.set("i", ",", ",<c-g>u")
 vim_keymap.set("i", ".", ".<c-g>u")
 vim_keymap.set("i", "!", "!<c-g>u")
 vim_keymap.set("i", "?", "?<c-g>u")
-
--- DAP Debugging
--- vim_keymap.set("n", "<leader>b", "<cmd>lua require'dap'.toggle_breakpoint()<CR>")
--- vim_keymap.set("n", "<leader>dr", "<cmd>lua require'dap'.continue()<CR>")
--- vim_keymap.set("n", "<leader>do", "<cmd>lua require'dap'.step_over()<CR>")
--- vim_keymap.set("n", "<leader>di", "<cmd>lua require'dap'.step_into()<CR>")
 
 -- Alternate file
 vim_keymap.set("n", "<BS>", "<C-^>")
@@ -110,5 +93,5 @@ end
 vim.keymap.set('n', '<leader>qf', quickfix)
 
 -- remap to open the Telescope refactoring
-vim.keymap.set('n', '<leader>rr', function() require('telescope').extensions.refactoring.refactors() end)
-vim.keymap.set('v', '<leader>rr', function() require('telescope').extensions.refactoring.refactors() end)
+vim.api.nvim_set_keymap( "n", "<leader>rr", "<Esc><cmd>lua require('telescope').extensions.refactoring.refactors()<CR>", { noremap = true })
+vim.api.nvim_set_keymap( "v", "<leader>rr", "<Esc><cmd>lua require('telescope').extensions.refactoring.refactors()<CR>", { noremap = true })
